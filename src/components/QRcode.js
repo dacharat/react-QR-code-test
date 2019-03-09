@@ -1,11 +1,11 @@
-import React, {useState, useRef} from "react";
+import React, { useRef, useContext } from "react";
 import QrReader from "react-qr-scanner";
+import { QrCodeContext } from "../App";
 
 const QrCode = () => {
-  const [result, setResult] = useState("")
-  const ref = useRef("qrcode")
-  console.log(ref, ref.current);
-  
+  const { result, scanned } = useContext(QrCodeContext);
+  const ref = useRef("qrcode");
+
   return (
     <>
       <QrReader
@@ -16,10 +16,14 @@ const QrCode = () => {
           width: 320
         }}
         onError={err => console.log(err)}
-        onScan={data => setResult(data)}
+        onScan={data => scanned(data)}
         legacyMode={true}
       />
-      <input type="button" value="Submit QR Code" onClick={() => ref.current.openImageDialog()} />
+      <input
+        type="button"
+        value="Submit QR Code"
+        onClick={() => ref.current.openImageDialog()}
+      />
       <p>{result}</p>
     </>
   );
