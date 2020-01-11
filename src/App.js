@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QRcode from "./components/QRcode";
+// import QRcode from "./components/QRcode";
 import Generator from "./components/Genetator";
 
 export const QrCodeContext = React.createContext();
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <QrCodeContext.Provider value={{ result, scanned }}>
-      <QRcode />
+      {/* <QRcode /> */}
       <Generator />
     </QrCodeContext.Provider>
   );
