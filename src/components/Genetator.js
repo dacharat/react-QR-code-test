@@ -33,8 +33,8 @@ const Generator = () => {
         level="Q"
         style={{ width: 256 }}
         value={JSON.stringify({
-          id: { id },
-          table: { table }
+          id: id,
+          table: table
         })}
       />
       <Input>
